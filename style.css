@@ -1,0 +1,294 @@
+/* ======================================= utility ======================================= */
+
+:root {
+  /* primary */
+  --primary: linear-gradient(
+    to bottom right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  /* neutral */
+  --bg: #f6f6fe;
+
+  --veryLightGrey: #b3b5c6;
+  --lightGrey: #6d708d;
+  --grey: #494c5f;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* ======================================= general ======================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--bg);
+  font-size: 15px;
+  width: fit-content;
+  height: fit-content;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.wrapper {
+  width: 55%;
+  height: fit-content;
+  text-align: center;
+  margin-top: 4rem;
+  margin-inline: auto;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  position: absolute;
+  z-index: -1;
+}
+
+#bg-top {
+  top: 0;
+  right: 0;
+}
+
+#bg-bottom {
+  bottom: 0;
+  left: 0;
+}
+
+/* ======================================= header ======================================= */
+
+header h1 {
+  font-size: 32px;
+  color: var(--lightGrey);
+}
+
+header section {
+  font-size: 15px;
+  color: var(--veryLightGrey);
+}
+
+/* header .switch {
+  background: var(--primary);
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+} */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--primary);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* ======================================= main ======================================= */
+
+main {
+  height: 31rem;
+  margin-top: 5rem !important;
+  color: var(--lightGrey);
+  align-items: center;
+}
+
+main > section > div,
+main > section > p,
+main > section > button {
+  width: 100%;
+  font-size: 15px;
+}
+
+div.pricing,
+main section p {
+  border-bottom: 1px solid var(--veryLightGrey);
+  padding: 1rem 0;
+}
+
+.front {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+  color: #fff;
+  padding: 3rem 2rem;
+}
+
+.backOne {
+  height: 92%;
+  background: #fff;
+  border-radius: 10px 0 0 10px;
+  padding: 3rem 2rem;
+}
+
+.backTwo {
+  height: 92%;
+  background: #fff;
+  border-radius: 0 10px 10px 0;
+  padding: 3rem 2rem;
+}
+
+div.pricing {
+  font-size: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey);
+}
+
+div.pricingMain {
+  font-size: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.pricing span {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.priceButton {
+  padding: 0.9rem;
+  height: 3rem;
+  border: none;
+  margin-top: 2.2rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.first-button {
+  background-color: #fff;
+  color: hsl(237, 63%, 64%);
+  transition: 0.2s ease-in-out;
+}
+
+.first-button:hover {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.first-button:active {
+  transform: scale(0.8);
+}
+
+.second-button {
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.second-button:hover {
+  background: transparent;
+  color: hsl(237, 63%, 64%);
+  border: 1px solid var(--lightGrey);
+}
+
+.second-button:active {
+  transform: scale(0.8);
+}
+
+/* ======================================= media query ======================================= */
+@media (max-width: 990px){
+  #bg-bottom {
+    display: none;
+  }
+  
+  main,
+  .front,
+  .backOne,
+  .backTwo {
+    height: initial;
+  }
+
+  .front,
+  .backOne,
+  .backTwo {
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+
+  .backTwo {
+    margin-bottom: 5rem;
+  }
+
+}
+
+@media (max-width: 425px) {
+  #bg-top {
+    right: -12rem;
+  }
+  #bg-bottom {
+    display: none;
+  }
+
+  .wrapper {
+    width: 80%;
+  }
+
+  main,
+  .front,
+  .backOne,
+  .backTwo {
+    height: initial;
+  }
+
+  .front,
+  .backOne,
+  .backTwo {
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+
+  .backTwo {
+    margin-bottom: 5rem;
+  }
+
+}
